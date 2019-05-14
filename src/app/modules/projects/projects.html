@@ -1,0 +1,10 @@
+<main class="content-wrapper">
+  <div class="container no-padding">
+    <h1 class="title h1">Проекты</h1>
+    <ul class="projects-list">
+      <li class="item" *ngFor="let project of projects$ | async">
+        <os-project-card [projectData]="project" (onCopy)="handleOnCopy($event)"></os-project-card>
+      </li>
+    </ul>
+  </div>
+</main>

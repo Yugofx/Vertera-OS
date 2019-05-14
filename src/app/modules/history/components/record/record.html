@@ -1,0 +1,19 @@
+<header>
+  <h1 class="title">Заказ №{{ order.consumer_data.id }}</h1>
+  <p class="status"><span class="-gray">Статус: </span>{{order.consumer_data.status}}</p>
+</header>
+<main>
+  <os-delivery-listing [details]="order.consumer_data"></os-delivery-listing>
+  <os-cart-view [dataSource]="order.products"></os-cart-view>
+</main>
+<footer>
+  <os-cart-total [totals]="totals" [delivery]="order.delivery_cost"></os-cart-total>
+  <div class="actions">
+    <button (click)="back()"
+            os-button-stroke
+            color="blank">
+      Вернуться назад
+    </button>
+  </div>
+</footer>
+

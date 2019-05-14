@@ -1,0 +1,26 @@
+.tab-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.embedded-tab {
+  .title {
+    margin-bottom: 1.5rem;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .list {
+    list-style-type: initial;
+    list-style-position: inside;
+    li {
+      line-height: 23px;
+      & + li {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

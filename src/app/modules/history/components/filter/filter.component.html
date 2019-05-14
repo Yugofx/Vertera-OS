@@ -1,0 +1,49 @@
+<div class="history">
+  <div class="history-navbar">
+    <div class="date-period">
+      <div class="form-group-controls double-controls">
+        <span
+          [ngClass]="{'iphone':(isPhone$ | async),'form-group-name c-second wid':!(isPhone$ | async)}">Период с</span>
+        <div class="form-group-controls double-controls">
+          <input class="form-control"
+                 [matDatepicker]="pickerFrom"
+                 (dateChange)="onDateChangeFrom($event)"
+                 placeholder="дд.мм.гггг">
+          <os-datepicker-toggle class="fill fill-interactive" [for]="pickerFrom"></os-datepicker-toggle>
+          <mat-datepicker #pickerFrom></mat-datepicker>
+        </div>
+      </div>
+      <div class="form-group-controls form-group-table">
+        <span [ngClass]="{'iphone':(isPhone$ | async)}" class="form-group-name c-second m-l-1">по</span>
+        <div class="form-group-controls double-controls">
+          <input class="form-control"
+                 [matDatepicker]="pickerTo"
+                 placeholder="дд.мм.гггг"
+                 (dateChange)="onDateChangeTo($event)">
+          <os-datepicker-toggle class="fill fill-interactive" [for]="pickerTo"></os-datepicker-toggle>
+          <mat-datepicker #pickerTo></mat-datepicker>
+        </div>
+      </div>
+    </div>
+    <os-select class="form-group history-navbar-status -full-width"
+               (valueChange)="onStatusChange($event)"
+               [value]="filter.status">
+      <os-option *ngFor="let st of status$ | async"
+                 [value]="st.id"
+                 [viewOption]="st.title"
+                 [selected]="st.id === filter.status">
+      </os-option>
+    </os-select>
+    <div class="history-navbar-reset">
+      <button class="link link-dotted c-second h-grt" (click)="onResetFilter()">Сбросить фильтр</button>
+    </div>
+    <div class="form-search">
+      <os-searchbar
+        #search
+        [placeholder]="'Номер Заказа...'"
+        (search)="onSearch($event)">
+      </os-searchbar>
+    </div>
+  </div>
+</div>
+

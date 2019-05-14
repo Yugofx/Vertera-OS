@@ -1,0 +1,17 @@
+<aside class="category-filter">
+  <os-categories (select)="onGroupSelect($event)"></os-categories>
+</aside>
+<section class="catalog">
+  <div class="goods-filter">
+    <os-searchbar (search)="onSearch($event)"></os-searchbar>
+    <os-toggle (change)="onPromotionSwitch($event)" labelPosition="before">Товары по
+      акции</os-toggle>
+    <os-view-switcher (onViewSwitch)="onViewSwitch($event)"></os-view-switcher>
+  </div>
+  <div class="goods-list">
+    <os-catalog-card *ngFor="let item of items$ | async"
+                     [view]="activeView"
+                     [item]="item">
+    </os-catalog-card>
+  </div>
+</section>

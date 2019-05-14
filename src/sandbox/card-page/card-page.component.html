@@ -1,0 +1,94 @@
+<h2 class="title">Card Component</h2>
+<p class="description">Styling component for blocks with separated logic</p>
+<h3 class="subtitle">Directives</h3>
+<table>
+  <tbody>
+  <tr>
+    <td>os-card[widget]</td>
+    <td>default styling: space theme on a background, max-width: 280px</td>
+  </tr>
+  <tr>
+    <td>os-card[dark]</td>
+    <td>default styling: dark violet background</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Input/ Output</h3>
+<table>
+  <tbody>
+  <tr>
+    <td>@Input</td>
+    <td>divided</td>
+    <td>boolean</td>
+    <td>Layout changed to two columns</td>
+  </tr>
+  <tr>
+    <td>@Input</td>
+    <td>error</td>
+    <td>boolean</td>
+    <td>For default card sets visual feedback of error state</td>
+  </tr>
+  <tr>
+    <td>@Input</td>
+    <td>openBordersOnMobile</td>
+    <td>boolean</td>
+    <td>Removes borders on mobile, splits divided card into to separate blocks</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Examples</h3>
+<ul>
+  <li class="row">
+    <div class="example">
+      <os-card>Simple card</os-card>
+    </div>
+    <div class="state">Config: no inputs, no directives on
+    </div>
+  </li>
+  <li class="row">
+    <div class="example">
+      <os-card [divided]="true">
+        <div class="left">Left side</div>
+        <div class="right">Right side</div>
+      </os-card>
+    </div>
+    <div class="state">Config: divided
+    </div>
+  </li>
+  <li class="row">
+    <div class="example">
+      <os-card [error]="true">
+        Error card
+      </os-card>
+    </div>
+    <div class="state">Config: error state on
+    </div>
+  </li>
+  <li class="row">
+    <div class="example">
+      <os-card [openBordersOnMobile]="true">
+        Hello
+      </os-card>
+    </div>
+    <div class="state">Config: added mobile free styling (no borders)
+    </div>
+  </li>
+  <li class="row">
+    <div class="example">
+      <os-card dark>
+        Dark content
+      </os-card>
+    </div>
+    <div class="state">Config: dark styling
+    </div>
+  </li>
+  <li class="row">
+    <div class="example">
+      <os-card widget>
+        Widget content
+      </os-card>
+    </div>
+    <div class="state">Config: widget styling
+    </div>
+  </li>
+</ul>

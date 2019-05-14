@@ -1,0 +1,8 @@
+<i class="ic-new ic-cart"></i>
+<div class="counter">
+  <button class="-minus" (click)="decrement()" [disabled]="count <= 0">-</button>
+  <div class="counter-field">
+    <input type="number" os-input [(ngModel)]="count">
+  </div>
+  <button class="-plus" (click)="increment()" [disabled]="count >= 9999">+</button>
+</div>

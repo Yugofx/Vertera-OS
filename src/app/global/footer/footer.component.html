@@ -1,0 +1,72 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">
+      <a href="#" class="logo">
+        <img src="../../../assets/logo.png" alt="СПЗ" class="logo-img">
+        <div class="logo-title">
+          Мир торговли
+        </div>
+        <div class="logo-text">
+          Система
+        </div>
+      </a>
+    </div>
+    <div class="footer-nav">
+      <dl class="item">
+        <dt class="item-title">Единая служба поддержки</dt>
+        <dd><a href="#" class="link">Служба поддержки</a></dd>
+      </dl>
+      <dl class="item">
+        <dt class="item-title">Оперативная консультация</dt>
+        <dd>
+          По будням с {{footerConf.consult.timework}} (Мск)
+          <br>по тел. {{footerConf.consult.number}}
+          <br><br>
+          <a [href]="prefixWith('mailto', footerConf.consult.link) | safe:'url'"
+             class="link">{{footerConf.consult
+            .link}}</a>
+        </dd>
+      </dl>
+      <dl class="item follow-news">
+        <dt class="item-title">Будь на связи</dt>
+        <div class="follow-news">
+          <div class="item">
+							<span class="item-text">Следи за последними
+								новостями в социальных сетях</span>
+            <div class="item-list" >
+              <a *ngFor="let s of footerConf.socials" [href]="s.link | safe: 'url'" class="ic-circle"><i [class]="'icon ic-' + s.name"></i></a>
+            </div>
+          </div>
+        </div>
+      </dl>
+
+      <dl class="item item-large">
+        <dt class="item-title">По вопросам поставки продукции (только для Центров Обслуживания)</dt>
+        <dd>
+          По будням с {{footerConf.proddelivery.timework}} (Мск) по тел. {{footerConf.proddelivery.number}}}
+          <br>
+          <a [href]="prefixWith('mailto', footerConf.proddelivery.mail) | safe: 'url'" class="link">
+            {{footerConf.proddelivery.mail}}
+          </a> или skype: <a [href]="prefixWith('skype', footerConf.proddelivery.skype) | safe: 'url'" class="link">
+            {{footerConf.proddelivery.skype}}
+          </a>
+        </dd>
+      </dl>
+      <dl class="item item-large">
+        <dt class="item-title">Отдел по работе с Центрами Обслуживания</dt>
+        <dd>
+          по будням c {{footerConf.serviceCenter.timework}} (Мск) по тел. {{footerConf.serviceCenter.number}}.
+          <br>
+          <a [href]="prefixWith('mailto', footerConf.serviceCenter.mail) | safe: 'url'" class="link">
+            {{footerConf.serviceCenter.mail}}
+          </a> или skype: <a [href]="prefixWith('skype', footerConf.serviceCenter.skype) | safe: 'url'" class="link">
+            {{footerConf.serviceCenter.skype}}
+          </a>
+        </dd>
+      </dl>
+    </div>
+    <div class="footer-copyright">
+      <div class="copyright">{{footerConf.copyright}}</div>
+    </div>
+  </div>
+</footer>

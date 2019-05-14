@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.selection-block {
+  margin-bottom: 2.5rem;
+  @media (min-width: 576px) {
+    margin-bottom: 2.7rem;
+  }
+  .label {
+    font-size: 15px;
+    line-height: 20px;
+    margin-bottom: 15px;
+  }
+}
+
+os-office-address {
+  margin: 3rem 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}

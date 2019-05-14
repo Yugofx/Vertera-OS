@@ -1,0 +1,18 @@
+export const CATEGORIES_MOCK = [
+  { label: 'Стартовый набор', group_id: '1', count: 522 },
+  { label: 'Основной каталог', group_id: '2', count: 82 },
+  { label: 'Спортивное питание', group_id: '3', count: 557 },
+  { label: 'Vertera Gel', group_id: '4', count: 557 },
+  { label: 'Косметика', group_id: '5', count: 123 },
+  { label: 'Vertera Therapy', group_id: '6', count: 541 },
+  { label: 'Гелевые напитки', group_id: '7', count: 1361 },
+  { label: 'Чай', group_id: '8', count: 96 },
+  { label: 'Комплекс DRR-protection', group_id: '9', count: 452 },
+  { label: 'Полиграфия', group_id: '10', count: 14 },
+  { label: 'Дом и сад', group_id: '11', count: 82 },
+  { label: 'Фирменная продукция', group_id: '12', count: 77 },
+  { label: 'Почтовые наборы', group_id: '13', count: 13 },
+  { label: 'Наборы Чёрный чай', group_id: '14', count: 6 },
+  { label: 'Лицензии', group_id: '15', count: 5 },
+  { label: 'Электронные товары и услуги', group_id: '15', count: 2 },
+];

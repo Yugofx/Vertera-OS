@@ -1,0 +1,62 @@
+<h2 class="title">Button Component</h2>
+<p class="description">Button is a main UI component. All the native functionality was left as
+  is, except some extensions. Can be applied to buttons and anchor elements.
+</p>
+<h3 class="subtitle">Directives</h3>
+<table>
+  <tbody>
+  <tr>
+    <td>os-button</td>
+    <td>default styling: no shadows, no outline</td>
+  </tr>
+  <tr>
+    <td>os-button-raised</td>
+    <td>default styling: box shadow is attached, no outline</td>
+  </tr>
+  <tr>
+    <td>os-button-stroke</td>
+    <td>default styling: outline is attached, no box shadow</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Input/ Output</h3>
+<table>
+  <tbody>
+  <tr>
+    <td>@Input</td>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>Sets interactive state of a button</td>
+  </tr>
+  <tr>
+    <td>@Input</td>
+    <td>color</td>
+    <td>'accent' | 'basic'</td>
+    <td>Sets background color of a button</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Examples</h3>
+<ul>
+  <li class="row">
+    <div class="example">
+      <button os-button>Default</button>
+    </div>
+    <div class="state">Config: [os-button]
+    </div>
+  </li>
+  <li class="row">
+    <div class="example">
+      <button os-button-raised color="accent">Raised accent</button>
+    </div>
+    <div class="state">Config: [os-button-raised], color="accent"
+    </div>
+  </li>
+  <li class="row">
+    <div class="example">
+      <button os-button-stroke color="basic">Stroke basic</button>
+    </div>
+    <div class="state">Config: [os-button-stroke], color="basic"
+    </div>
+  </li>
+</ul>

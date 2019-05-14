@@ -1,0 +1,108 @@
+<div class="title">Данные по заказу</div>
+<div class="info-block" [formGroup]="deliveryForm">
+  <div class="info-row">
+    <div class="label">Номер заказа</div>
+    <div class="value">№{{ orderInfo.id }}</div>
+  </div>
+  <div class="info-row">
+    <div class="label">Получатель</div>
+    <div class="value">{{ orderInfo.user }}</div>
+  </div>
+  <div class="info-row">
+    <div class="label">Способ доставки</div>
+    <div class="value -mt">
+      <os-select (valueChange)="onDeliverySelect($event)" formControlName="delivery_method">
+        <os-option value="1" viewOption="Самовывоз"></os-option>
+        <os-option value="2" viewOption="Новая почта"></os-option>
+        <os-option value="3" viewOption="Интайм"></os-option>
+        <os-option value="4" viewOption="Почта России"></os-option>
+        <os-option value="5" viewOption="DHL"></os-option>
+      </os-select>
+    </div>
+  </div>
+  <div class="info-row -spaced" *ngIf="isTakeAway; else deliveryAddress">
+    <os-office-address [address]="selectedOffice"></os-office-address>
+  </div>
+  <div class="info-row">
+    <div class="label">Почта</div>
+    <div class="value -mt">
+      <input os-input formControlName="email">
+    </div>
+  </div>
+  <div class="info-row">
+    <div class="label">Телефон</div>
+    <div class="value -mt">
+      <input os-input formControlName="phone_number">
+    </div>
+  </div>
+  <div class="info-row">
+    <div class="label -align-top">Комментарий</div>
+    <div class="value -mt">
+      <textarea os-input formControlName="comment"></textarea>
+    </div>
+  </div>
+</div>
+<footer class="action-block">
+  <button os-button-raised
+          color="accent"
+          (click)="sendOrderDetails()"
+          [disabled]="deliveryForm.invalid">
+    Далее
+  </button>
+  <button os-button-stroke
+          color="blank"
+          (click)="back()">
+    Вернуться назад
+  </button>
+</footer>
+
+<ng-template #deliveryAddress>
+  <div class="delivery-info">
+    <div class="block-title">Адрес доставки</div>
+    <div class="info-row">
+      <div class="label">Страна</div>
+      <div class="value -mt">
+        <os-select [formControl]="addressControls.country">
+          <os-option value="RU" viewOption="Россия"></os-option>
+          <os-option value="UA" viewOption="Украина"></os-option>
+          <os-option value="US" viewOption="США"></os-option>
+        </os-select>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="label">Город</div>
+      <div class="value -mt">
+        <os-select [formControl]="addressControls.city">
+          <os-option value="MSK" viewOption="Москва"></os-option>
+          <os-option value="SPB" viewOption="Санкт-Петербург"></os-option>
+          <os-option value="KAZ" viewOption="Казань"></os-option>
+        </os-select>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="label">Индекс</div>
+      <div class="value -mt">
+        <input type="text" os-input [formControl]="addressControls.zip">
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="label">Улица</div>
+      <div class="value -mt">
+        <input type="text" os-input [formControl]="addressControls.street">
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="label">Дом</div>
+      <div class="value -mt">
+        <input type="text" os-input [formControl]="addressControls.building">
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="label">Квартира</div>
+      <div class="value -mt">
+        <input type="text" os-input [formControl]="addressControls.apartment">
+      </div>
+    </div>
+  </div>
+
+</ng-template>

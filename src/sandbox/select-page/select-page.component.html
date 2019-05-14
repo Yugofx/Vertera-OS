@@ -1,0 +1,91 @@
+<h2 class="title">Select Components</h2>
+<p class="description">Imitates work of a native html select. Consists of two components: select
+itself and options containing values and displayed values</p>
+<h3 class="subtitle">Select Input/ Output</h3>
+<table>
+  <tbody>
+  <tr>
+    <td>@Input</td>
+    <td>value</td>
+    <td>String</td>
+    <td>Default value can be set here</td>
+  </tr>
+  <tr>
+    <td>@Input</td>
+    <td>disabled</td>
+    <td>Boolean</td>
+    <td>Sets select disable state</td>
+  </tr>
+  <tr>
+    <td>@Output</td>
+    <td>valueChange</td>
+    <td>String</td>
+    <td>Emits value of selected option</td>
+  </tr>
+  <tr>
+    <td>@Output</td>
+    <td>openChange</td>
+    <td>-</td>
+    <td>Emits event on select list opening</td>
+  </tr>
+  <tr>
+    <td>@Output</td>
+    <td>closeChange</td>
+    <td>-</td>
+    <td>Emits event on select list closing</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Option Input/ Output</h3>
+<table>
+  <tbody>
+  <tr>
+    <td>@Input</td>
+    <td>value</td>
+    <td>String</td>
+    <td>Value, that will be emitted on option select</td>
+  </tr>
+  <tr>
+    <td>@Input</td>
+    <td>viewOption</td>
+    <td>String</td>
+    <td>Defines a visible value of an option</td>
+  </tr>
+  <tr>
+    <td>@Input</td>
+    <td>selected</td>
+    <td>boolean</td>
+    <td>Sets selected by default option</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Examples</h3>
+<ul>
+  <li class="row">
+    <div class="example">
+      <os-select #select1>
+        <os-option [value]="1" viewOption="One"></os-option>
+        <os-option [value]="2" viewOption="Two"></os-option>
+      </os-select>
+    </div>
+    <div class="state">State: <span class="boolean">{{ select1.value }}</span></div>
+  </li>
+  <li class="row">
+    <div class="example">
+      <os-select [disabled]="true">
+        <os-option [value]="1" viewOption="One"></os-option>
+        <os-option [value]="2" viewOption="Two"></os-option>
+      </os-select>
+    </div>
+    <div class="state">State: <span class="boolean">Disabled</span></div>
+  </li>
+  <li class="row">
+    <div class="example">
+      <os-select #select2>
+        <os-option [value]="1" viewOption="One" [selected]="true"></os-option>
+        <os-option [value]="2" viewOption="Two"></os-option>
+      </os-select>
+    </div>
+    <div class="state">State: <span class="boolean">{{ select2.value }}</span></div>
+  </li>
+</ul>

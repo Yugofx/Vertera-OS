@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 265px;
+  }
+  .total-row {
+    display: flex;
+    align-items: baseline;
+    .label {
+      color: #828282;
+    }
+    .separator {
+      display: block;
+      align-self: flex-end;
+      flex-grow: 1;
+      margin: 0 4px 5px;
+      height: 1px;
+      background-image: linear-gradient(to right,#bdbdbd 33%,rgba(255,255,255,0) 0);
+      background-position: bottom;
+      background-size: 3px 1px;
+      background-repeat: repeat-x;
+    }
+    .-total {
+      font-weight: 500;
+      font-size: 20px;
+    }
+    & + .total-row {
+      margin-top: 1.5rem;
+    }
+  }
+}

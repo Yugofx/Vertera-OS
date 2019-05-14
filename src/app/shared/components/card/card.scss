@@ -1,0 +1,123 @@
+@import '../../../styles/vars';
+
+.os-card {
+  display: block;
+  width: 100%;
+  padding: 25px 30px;
+  border-radius: 5px;
+  background-color: map_get($colors, blank);
+  border: 1px solid #E0E0E0;
+  &.-mobile-free {
+    @include media-breakpoint-down(xs) {
+      padding: 0;
+      border: none;
+    }
+  }
+  &.-error {
+    color: #CC8989;
+    background: #FFF9F9;
+    border: 1px solid #FFC1C1;
+    padding: 16px;
+    margin-bottom: 15px;
+    @include media-breakpoint-down(md) {
+      padding: 20px;
+    }
+    .title {
+      margin-bottom: 25px;
+      color: #b86767;
+      font-weight: 500;
+      @include media-breakpoint-down(xs) {
+        margin-bottom: 4px;
+      }
+    }
+    .text {
+      margin-top: 0;
+      font-size: 14px;
+      line-height: 19px;
+    }
+  }
+  &.-divided {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    .left {
+      min-width: 315px;
+      width: calc(100% - 315px);
+      padding: 25px 30px;
+    }
+    .right {
+      width: 315px;
+      padding: 25px 30px;
+      background-color: #F1F1F1;
+    }
+  }
+  &.-dark {
+    border: none;
+    background: #220545 no-repeat center top;
+    background-size: cover;
+    color: map_get($colors, blank);
+  }
+  &.-widget {
+    padding: 2.5rem 2rem;
+    width: 280px;
+    border: none;
+    background: #220545 url('../../../../assets/widget.jpg') no-repeat center top;
+    background-size: cover;
+    color: map_get($colors, blank);
+
+    @include media-breakpoint-down(md) {
+      width: auto;
+      max-width: 50%;
+      &.-narrow {
+        flex: 1;
+        max-width: 260px;
+      }
+    }
+    @include media-breakpoint-down(xs) {
+      &, &.-narrow {
+        width: 100%;
+        flex: none;
+        max-width: 100%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 20px;
+
+    &.-divided {
+      padding: 0;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    border: none;
+
+    .left, .right {
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #e0e0e0;
+      padding: 20px;
+    }
+    .left {
+    }
+    .right {
+      margin-top: 20px;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    &.-error {
+      margin-bottom: 30px;
+    }
+
+    &.-divided, .right {
+      padding: 20px;
+    }
+    .left {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+    }
+  }
+}

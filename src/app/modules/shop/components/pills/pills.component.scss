@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+
+  &.-right {
+    flex-direction: column;
+    align-items: flex-end;
+    .pill {
+      margin-right: 0;
+    }
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      .pill + .pill {
+        margin-left: 1.3rem;
+      }
+    }
+  }
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  &:not(:last-child) {
+    margin-right: 1.3rem;
+  }
+  &-count {
+    margin-right: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #4F4F4F;
+  }
+  &-name {
+    padding: 0 4px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 14px;
+    color: #FFF;
+    border-radius: 8px;
+    &.-purple {
+      background-color: #9B51E0;;
+    }
+    &.-green {
+      background-color: #27AE60;
+    }
+  }
+}

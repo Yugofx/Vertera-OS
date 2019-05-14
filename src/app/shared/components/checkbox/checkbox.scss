@@ -1,0 +1,61 @@
+@import '../../../styles/vars';
+
+.os-checkbox {
+  &.-disabled {
+    opacity: .5;
+
+    .checkbox-label {
+      cursor: default;
+    }
+  }
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  font-size: 15px;
+  line-height: 20px;
+  user-select: none;
+  cursor: pointer;
+
+  &.-left {
+    padding-left: 27px;
+
+    .checkbox, .toggle {
+      left: 0;
+    }
+  }
+
+  &.-right {
+    padding-right: 27px;
+
+    .checkbox, .toggle {
+      right: 0;
+    }
+  }
+
+  .checkbox {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: map_get($colors, blank);
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+    &::before {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url('../../../../assets/icons/ic-checked.svg') no-repeat center;
+      background-size: auto;
+    }
+
+    &.-checked {
+      &::before {
+        content: '';
+      }
+    }
+  }
+}

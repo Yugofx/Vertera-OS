@@ -1,0 +1,38 @@
+<div class="info-row">
+  <div class="label">Номер заказа</div>
+  <div class="value">№{{ details.id }}</div>
+</div>
+<div class="info-row">
+  <div class="label">Получатель</div>
+  <div class="value">{{ details.user }}</div>
+</div>
+<div class="info-row">
+  <div class="label">Дата заказа</div>
+  <div class="value">{{ details.created_at || 'Не найдено' }}</div>
+</div>
+<div class="info-row">
+  <div class="label">Способ доставки</div>
+  <div class="value">{{ details.delivery_method }}</div>
+</div>
+<ng-container *ngIf="details.delivery_method != 1">
+  <div class="info-row">
+    <div class="label">Адрес</div>
+    <div class="value">{{ address }}</div>
+  </div>
+</ng-container>
+<div class="info-row">
+  <div class="label">Email</div>
+  <div class="value">{{ details.email }}</div>
+</div>
+<div class="info-row">
+  <div class="label">Телефон</div>
+  <div class="value">{{ details.phone_number }}</div>
+</div>
+<div class="info-row" *ngIf="details.system_email">
+  <div class="label">Электронная почта</div>
+  <div class="value">{{ details.system_email }}</div>
+</div>
+<div class="info-row" *ngIf="details.comment">
+  <div class="label">Комментарий</div>
+  <div class="value">{{ details.comment }}</div>
+</div>

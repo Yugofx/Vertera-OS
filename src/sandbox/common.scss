@@ -1,0 +1,74 @@
+.row {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid transparentize(#aaa, .7);
+
+  .state {
+    margin-top: 20px;
+    color: #999;
+  }
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.description {
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+.note {
+  padding: 20px;
+  border: 1px solid rgba(204, 44, 44, 0.52);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  color: rgba(204, 44, 44, 0.52);
+  &::before {
+    content: "!";
+    display: inline-block;
+    vertical-align: baseline;
+    margin-right: 5px;
+  }
+}
+
+.boolean {
+  font-weight: 700;
+  color: #3706AD;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  tr {
+    td {
+      border: 1px solid transparentize(#aaa, .8);
+      padding: 10px;
+      line-height: 1.4;
+    }
+  }
+}
+
+.link {
+  color: #449FDB;
+}
+
+os-tab {
+  padding: 20px;
+  background-color: #CECECE;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+
+

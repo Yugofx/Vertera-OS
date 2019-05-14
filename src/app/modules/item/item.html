@@ -1,0 +1,52 @@
+<div class="item-info">
+  <div class="item-photo" *ngIf="!(isXS$ | async)">
+    <img [src]="item?.image" [alt]="item?.name">
+  </div>
+  <div class="item-overview">
+    <div class="item-title">
+      <div class="title">{{ item?.name }}</div>
+      <div class="subtitle">{{ item?.name_translation }}</div>
+    </div>
+    <div class="item-photo" *ngIf="isXS$ | async">
+      <img [src]="item?.image" [alt]="item?.name">
+    </div>
+    <div class="text" [innerHTML]="item?.overview"></div>
+    <div class="item-params">
+      <div class="block">
+        <div class="label">Цена</div>
+        <div class="value">{{ item?.prices[0].price |
+          currency:item?.prices[0].code:'symbol-narrow':'1.0-4':'ru'
+          }}</div>
+      </div>
+      <div class="block">
+        <div class="label">В упаковке</div>
+        <div class="value">{{ item?.package_quantity.count }}{{ item?.package_quantity.measure }}</div>
+      </div>
+      <div class="block">
+        <div class="label">Баллы</div>
+        <div class="value -pills">
+          <div class="pill">
+            <span class="pill-count">{{ item?.points.cpv }}</span>
+            <span class="pill-name -purple">CPV</span>
+          </div>
+          <div class="pill">
+            <span class="pill-count">{{ item?.points.bpv }}</span>
+            <span class="pill-name -green">BPV</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item-cart">
+      <div class="label">Положить в корзину</div>
+      <os-counter [count]="item?.count" (change)="onCounterClick($event)"></os-counter>
+    </div>
+  </div>
+</div>
+<div class="tab-container">
+  <os-tabs>
+    <os-tab [template]="item?.details">Описание</os-tab>
+    <os-tab [template]="item?.ingredients">Состав</os-tab>
+    <os-tab [template]="item?.use">Применение</os-tab>
+  </os-tabs>
+</div>
+

@@ -1,0 +1,233 @@
+input, textarea, button {
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  outline: none;
+}
+
+a {
+  transition: color 0.25s ease;
+}
+
+svg path,
+svg polygon,
+svg rect {
+  transition: all 0.25s ease;
+}
+
+.pre-line {
+  white-space: pre-line;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.btn-wrapper {
+  display: block;
+  line-height: 0;
+  width: 100%;
+}
+
+.link-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.ttu {
+  text-transform: uppercase;
+}
+
+.c-basic {
+  color: map_get($colors, basic);
+}
+
+.c-second {
+  color: #828282;
+}
+
+.link {
+  display: inline;
+  color: inherit;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.link-dotted {
+  border-bottom: 1px dotted;
+  border-color: inherit;
+}
+.link:hover, .link:focus {
+  color: inherit;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown.-opened .dropdown-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+.dropdown-toggle {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+.dropdown-list {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  position: absolute;
+  margin-top: 16px;
+  top: 100%;
+  right: 0;
+  min-width: 170px;
+  height: auto;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  z-index: $zindex-dropdown;
+  padding-top: 8px;
+}
+.dropdown-list:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 5px 5px 0 0;
+  z-index: 2;
+}
+.dropdown-list:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 56px;
+  width: 16px;
+  height: 16px;
+  transform: rotate(45deg) translateY(-50%);
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+.dropdown-list ul {
+  position: relative;
+  z-index: 3;
+}
+.dropdown-list ul li {
+  display: block;
+  width: 100%;
+}
+.dropdown-list ul li .link {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 15px;
+  line-height: 20px;
+  height: 40px;
+  padding: 0 40px 0 13px;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+.dropdown-list ul li .link:hover {
+  background: #F5F5F5;
+}
+.dropdown-list ul li .link-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.h-grt:hover {
+  color: #A310B0 !important;
+  border-color: #A310B0;
+  background: linear-gradient(90deg, #3706AD 0%, #A310B0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .h-grt:hover {
+    background: none;
+  }
+}
+
+.is-active .h-grt {
+  color: #A310B0 !important;
+  border-color: #A310B0;
+  background: linear-gradient(90deg, #3706AD 0%, #A310B0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .is-active .h-grt {
+    background: none;
+  }
+}
+
+.text {
+  display: block;
+  width: 100%;
+  margin-top: 11px;
+}
+
+.features li {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.features li:first-child {
+  margin-top: 0;
+}
+.features-name {
+  color: #828282;
+  flex-grow: 1;
+}
+.features-value {
+  text-align: right;
+  word-spacing: 4px;
+  flex-shrink: 0;
+}
+.features-table {
+  display: table;
+  width: 100%;
+}
+.features-table li {
+  display: table-row;
+}
+.features-table li:last-child .features-name, .features-table li:last-child .features-value {
+  padding-bottom: 0px;
+}
+.features-table li .features-name, .features-table li .features-value {
+  display: table-cell;
+  padding-bottom: 10px;
+}
+.features-table li .features-value {
+  text-align: left;
+  padding-left: 30px;
+}
+
+@include media-breakpoint-down(md) {
+  .ic-circle {
+    line-height: 40px;
+    vertical-align: middle;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .login .dropdown-list:after {
+    right: 20px;
+  }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+<div *ngIf="isTabletOrPhone$ | async" class="header-links scroll">
+  <div class="scroll-bar-hidden">
+    <ul class="mobile-hidden-scroll">
+      <li *ngFor="let i of submenu"><a [routerLink]="i.link" class="link p-small">{{i.label}}</a></li>
+    </ul>
+  </div>
+</div>

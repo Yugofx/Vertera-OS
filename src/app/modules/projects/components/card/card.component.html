@@ -1,0 +1,18 @@
+<div class="card-image">
+  <img [src]="projectData?.logo" alt="Alt">
+</div>
+<div class="card-title">
+  <a [href]="projectData?.link" target="_blank" class="link h2">
+    {{ projectData?.title }}
+  </a>
+</div>
+<div class="card-ref">
+  <span class="title">Ваша реферальная ссылка:</span>
+  <a [href]="projectData?.ref" class="-border-dotted">
+    {{ projectData?.ref }}
+  </a>
+  <div class="card-action">
+    <button os-button-raised color="accent" (click)="copyToClipboard()">Копировать ссылку</button>
+    <span class="action-result" *ngIf="isCopied">Ссылка скопирована</span>
+  </div>
+</div>

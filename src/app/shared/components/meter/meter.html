@@ -1,0 +1,15 @@
+<ul>
+  <ng-container *ngFor="let validator of validators">
+    <li *ngIf="!validator.hidden"
+      [class.-passed]="validator.passed">
+      {{ validator.label }}
+    </li>
+  </ng-container>
+</ul>
+<div *ngIf="viewBar" class="bar">
+  <div class="title">Уровень безопасности пароля:</div>
+  <div class="bar-progress">
+    <span class="progress" [style.width.%]="width"></span>
+  </div>
+  <div class="bar-status">{{ status }}</div>
+</div>

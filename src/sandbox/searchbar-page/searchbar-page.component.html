@@ -1,0 +1,23 @@
+<h2 class="title">Searchbar Components</h2>
+<p class="description">Input component with additional functionality to emit its value on icon
+  click</p>
+<h3 class="subtitle">Input/ Output</h3>
+<table>
+  <tbody>
+  <tr>
+    <td>@Output</td>
+    <td>search</td>
+    <td>String</td>
+    <td>Emits value of a search input.</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Examples</h3>
+<ul>
+  <li class="row">
+    <div class="example">
+      <os-searchbar (search)="onSearch($event)"></os-searchbar>
+    </div>
+    <div class="state">State: <span class="boolean">{{ query }}</span></div>
+  </li>
+</ul>

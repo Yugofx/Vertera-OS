@@ -1,0 +1,18 @@
+<div class="header-links" *ngIf="!(isTabletOrPhone$ | async)" #menuContainer>
+  <ul>
+    <li  *ngFor="let s of expandedMenu; trackBy: trackByFn">
+      <a  [routerLink]="s.link" class="link p-small h-grt" routerLinkActive="-active">{{s.label}}</a>
+    </li>
+    <li class="white-drop">
+      <os-dropdown  class="dropdown" label="Eще">
+        <ul>
+          <li  *ngFor="let item of rollupMenu; trackBy: trackByFn">
+            <a class="link p-small" [routerLink]="item.link" routerLinkActive="-active">
+              {{item.label}}
+            </a>
+          </li>
+        </ul>
+      </os-dropdown>
+    </li>
+  </ul>
+</div>

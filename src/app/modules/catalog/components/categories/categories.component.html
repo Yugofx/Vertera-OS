@@ -1,0 +1,22 @@
+<div class="categories" *ngIf="isLgAndWider$ | async; else select">
+  <div class="title">Категории</div>
+  <ul class="category-list">
+    <li class="item"
+        *ngFor="let cat of categories"
+        [class.-active]="cat.group_id === selectedId">
+      <button (click)="onSelect(cat.group_id)">
+        <span>{{ cat.label }}</span>
+        <span>{{ cat.count }}</span>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<ng-template #select>
+  <os-select (valueChange)="onSelect($event)" [value]="selectedId">
+    <os-option *ngFor="let cat of categories"
+               [value]="cat.group_id"
+               [viewOption]="cat.label">
+    </os-option>
+  </os-select>
+</ng-template>

@@ -1,0 +1,47 @@
+<h2 class="title">Table Components</h2>
+<p class="description">Renders data in table view. For more info, how to configure a table,
+  please, see <a href="https://material.angular.io/components/table/overview" class="link"
+                 target="_blank"
+  >material table docs</a>.</p>
+<h3 class="subtitle">Examples</h3>
+<ul>
+  <li class="row">
+    <div class="example">
+      <table os-table [dataSource]="dataSource">
+        <ng-container osColumnDef="id">
+          <th os-header-cell *osHeaderCellDef>ID</th>
+          <td os-cell *osCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container osColumnDef="date">
+          <th os-header-cell *osHeaderCellDef>Дата</th>
+          <td os-cell *osCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+
+        <ng-container osColumnDef="operation">
+          <th os-header-cell *osHeaderCellDef>Тип операции</th>
+          <td os-cell *osCellDef="let element"> {{element.operation }} </td>
+        </ng-container>
+
+        <ng-container osColumnDef="sum">
+          <th os-header-cell *osHeaderCellDef>Сумма</th>
+          <td os-cell *osCellDef="let element"> {{element.sum}} </td>
+        </ng-container>
+
+        <ng-container osColumnDef="spz">
+          <th os-header-cell *osHeaderCellDef>СПЗ</th>
+          <td os-cell *osCellDef="let element"> {{element.spz}} </td>
+        </ng-container>
+
+        <ng-container osColumnDef="status">
+          <th os-header-cell *osHeaderCellDef>Статус</th>
+          <td os-cell *osCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+
+        <tr os-header-row *osHeaderRowDef="displayedColumns"></tr>
+        <tr os-row *osRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </li>
+</ul>
+

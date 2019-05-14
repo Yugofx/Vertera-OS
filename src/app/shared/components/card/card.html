@@ -1,0 +1,8 @@
+<ng-template [ngIf]="!divided" [ngIfElse]="dividedLayout">
+  <ng-content></ng-content>
+</ng-template>
+
+<ng-template #dividedLayout>
+  <ng-content select=".left"></ng-content>
+  <ng-content select=".right"></ng-content>
+</ng-template>

@@ -1,0 +1,20 @@
+<nav class="header-nav">
+  <ul class="mobile-hidden-scroll">
+    <li class="tip" *ngFor="let items  of articles">
+      <a *ngIf="!items.submenu"
+         [routerLink]="items.link"
+         class="link p-small tip-default">
+        {{ items.label }}
+      </a>
+      <os-dropdown *ngIf="items.submenu" class="lang dropdown" [label]="items.label">
+        <ul>
+          <li *ngFor="let sub of items.submenu">
+            <a [routerLink]="sub.link">
+              {{ sub.label }}
+            </a>
+          </li>
+        </ul>
+      </os-dropdown>
+    </li>
+  </ul>
+</nav>

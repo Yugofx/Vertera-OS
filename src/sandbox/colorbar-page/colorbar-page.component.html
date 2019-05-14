@@ -1,0 +1,23 @@
+<h2 class="title">Colorbar Components</h2>
+<p class="description">Colorful indicator of host component's completion</p>
+<h3 class="subtitle">Input/ Output</h3>
+<table>
+  <tbody>
+    <tr>
+      <td>@Input</td>
+      <td>progress</td>
+      <td>String</td>
+      <td>Sets width from 0 to 100% to progress bar.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Examples</h3>
+<ul>
+  <li class="row">
+    <div class="example">
+      <os-colorbar [progress]="progress.value"></os-colorbar>
+    </div>
+    <div class="state" style="margin-bottom: 20px">Input any number between 0 and 100:</div>
+    <input os-input #progress>
+  </li>
+</ul>

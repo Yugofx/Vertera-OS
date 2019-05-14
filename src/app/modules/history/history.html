@@ -1,0 +1,75 @@
+<div class="content-head">
+  <h2 class="h2 title">История заказов</h2>
+</div>
+<os-filter (changeFilter)="onChangeFilter($event)"></os-filter>
+<div class="history-table">
+  <table [trackBy]="trackById" os-table class="table-default" [dataSource]="items$ | async">
+    <ng-container osColumnDef="created_at">
+      <th os-header-cell *osHeaderCellDef>Дата</th>
+      <td os-cell *osCellDef="let element">
+        <span class="xs" *ngIf="isSmOrLess$ | async">Дата</span>
+        {{element.created_at | date:'dd.MM.yy'}}
+      </td>
+    </ng-container>
+    <ng-container osColumnDef="id">
+      <th os-header-cell *osHeaderCellDef>Номер заказа</th>
+      <td os-cell *osCellDef="let element">
+        <span class="xs" *ngIf="isSmOrLess$ | async">Номер заказа</span>
+        {{element.id}}
+      </td>
+    </ng-container>
+    <ng-container osColumnDef="composition">
+      <th os-header-cell *osHeaderCellDef>Состав заказа</th>
+      <td os-cell *osCellDef="let element">
+        <span class="xs  p-b-1" *ngIf="isSmOrLess$ | async">Состав заказа</span>
+        <ul class="shopping-list">
+          <li *ngFor="let order of element.composition">
+            {{order.amount}} × {{order.price}} - {{order.name}}
+            <span>{{order.total | localazeCurrency:order.code:'symbol':'.0-2'}}</span>
+            <ul *ngIf="order.sublist.length" class="sublist">
+              <li *ngFor="let suborder of order.sublist">
+                {{suborder.amount}}×{{suborder.code_product}} - {{suborder.name}}
+                <span *ngIf="suborder.price">{{suborder.price| localazeCurrency:order.code:'symbol':'.0-2'}}</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </ng-container>
+    <ng-container osColumnDef="total">
+      <th os-header-cell *osHeaderCellDef>Всего</th>
+      <td os-cell *osCellDef="let element">
+        <div>
+          <span class="xs" *ngIf="isSmOrLess$ | async">Всего</span>
+        </div>
+        <div>
+          <span class="title price-main">{{element.total | localazeCurrency:element.code:'symbol':'.0-2'}}</span>
+          <div class="price-points">
+            <div class="pill-count h5">
+              <div class="pill">
+                <span class="pill-count h5">{{element.cpv}}</span>
+                <span class="pill-text bg-purple">CPV</span>
+              </div>
+              <div class="pill">
+                <span class="pill-count h5">{{element.bpv}}</span>
+                <span class="pill-text bg-green">BPV</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container osColumnDef="status">
+      <th os-header-cell *osHeaderCellDef>Статус</th>
+      <td os-cell *osCellDef="let element">
+        <span class="xs" *ngIf="isSmOrLess$ | async">Статус</span>
+        {{element.status}}
+      </td>
+    </ng-container>
+    <tr os-header-row *osHeaderRowDef="displayedColumns"></tr>
+    <tr os-row *osRowDef="let row; columns: displayedColumns;"
+        (click)="openOrder(row.id)">
+    </tr>
+  </table>
+</div>
+<button os-button-stroke (click)="loadMore()" class="load-more">Показать Еще</button>

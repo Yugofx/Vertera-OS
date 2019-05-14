@@ -1,0 +1,62 @@
+@import "../../styles/vars";
+
+.content {
+  width: 100%;
+  &-wrapper {
+    padding-top: 3rem;
+    padding-bottom: 10rem;
+  }
+
+  os-tabs {
+    ::ng-deep .tab-wrapper {
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+  }
+
+  .title {
+    margin-bottom: 10px;
+    font-size: 30px;
+    line-height: 42px;
+    letter-spacing: 0;
+    @media (min-width: 356px) and (max-width: 575px) {
+      font-size: 32px;
+    }
+  }
+
+  .tab {
+    width: auto;
+    height: 65px;
+    line-height: 65px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+    & + .tab {
+      margin-left: 3rem;
+    }
+    @media (min-width: 576px) {
+      font-size: 14px;
+    }
+  }
+
+  .-selected {
+    color: #a310b0!important;
+    background: linear-gradient(90deg,#3706ad 0,#a310b0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg,#3706ad 0,#a310b0 100%);
+      opacity: 1;
+      transition: opacity .3s ease;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="dropdown-label" (click)="toggle()">
+  <i *ngIf="labelIcon" [class]="'icon ' + labelIcon"></i>
+  <span>{{ label }}</span>
+</div>
+<div class="dropdown-list" (clickOutside)="onClickOutside($event)">
+  <ng-content></ng-content>
+</div>
+

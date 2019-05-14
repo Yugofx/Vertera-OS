@@ -1,0 +1,27 @@
+<header class="header">
+  <div class="topLine">
+    <div class="container">
+      <div class="header-text h6" *ngIf="isWideScreen$ | async">{{ currentTime$ | async }}</div>
+      <os-top-menu></os-top-menu>
+      <os-lang-selector></os-lang-selector>
+    </div>
+  </div>
+  <div class="middleLine">
+    <div class="container">
+      <div class="header-logo">
+        <a routerLink="/" class="logo">
+						<span class="logo-image">
+							<img src="../../../assets/logo.png" alt="Мир Торговли - СПЗ">
+						</span>
+          <span class="logo-text">
+							<i class="ic ic-logo-title"></i>
+							<span>СИСТЕМА</span>
+						</span>
+        </a>
+      </div>
+      <os-main-menu></os-main-menu>
+      <os-profile-menu></os-profile-menu>
+    </div>
+  </div>
+  <os-main-menu-xs-sm></os-main-menu-xs-sm>
+</header>

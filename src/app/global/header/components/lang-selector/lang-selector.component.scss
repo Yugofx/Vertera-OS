@@ -1,0 +1,28 @@
+@import '../../../../styles/vars';
+
+:host {
+  z-index: 1001;
+  @include media-breakpoint-down(sm) {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    width: 100px;
+    background-color: #220545;
+    //z-index: 10;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -25px;
+      width: 30px;
+      height: 100%;
+      background: -webkit-gradient(linear, left top, right top, from(rgba(34, 5, 69, .05)), color-stop(100%, #220545), to(#220545));
+      background: -webkit-linear-gradient(left, rgba(34, 5, 69, .05), #220545 100%, #220545);
+      background: -o-linear-gradient(left, rgba(34, 5, 69, .05), #220545 100%, #220545);
+      background: linear-gradient(to right, rgba(34, 5, 69, .05), #220545 100%, #220545);
+    }
+  }
+}

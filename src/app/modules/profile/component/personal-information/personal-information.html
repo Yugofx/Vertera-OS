@@ -1,0 +1,57 @@
+<os-colorbar [progress]="progress"></os-colorbar>
+<div class="info-block">
+  <div class="avatar">
+    <label class="image-uploader">
+      <i class="ic-new ic-photo-clip"></i>
+      <a href="#" class="link">Прикрепить фото</a>
+      <input type="file">
+    </label>
+  </div>
+  <div class="user-info">
+    <div class="title">
+      {{fullName}}
+      <span class="line-filler -dark -big" *ngIf="!fullName"></span>
+    </div>
+    <ul class="info-list">
+      <li>
+        <span class="info-item">Личный номер</span>
+        <span class="info-value" *ngIf="userData?.id; else filler">
+            {{userData?.id}}
+          </span>
+      </li>
+      <li>
+        <span class="info-item">Дата начала работ</span>
+        <span class="info-value" *ngIf="userData?.beginningWork; else filler">
+            {{userData?.beginningWork}}
+          </span>
+      </li>
+      <li>
+        <span class="info-item">Ваша реферальная ссылка</span>
+        <span class="info-value" *ngIf="userData?.referralLink; else filler">
+            {{userData?.referralLink}}
+          </span>
+      </li>
+      <li>
+        <span class="info-item">Дата рождения</span>
+        <span class="info-value" *ngIf="userData?.birthDay; else filler">
+            {{userData?.birthDay}}
+          </span>
+      </li>
+      <li>
+        <span class="info-item">Мобильный телефон</span>
+        <span class="info-value" *ngIf="userData?.number; else filler">
+            {{userData?.number}}
+          </span>
+      </li>
+      <li>
+        <span class="info-item">Электронная почта</span>
+        <span class="info-value" *ngIf="userData?.email; else filler">
+            {{userData?.email}}
+          </span>
+      </li>
+    </ul>
+  </div>
+</div>
+<ng-template #filler>
+  <span class="line-filler -light"></span>
+</ng-template>

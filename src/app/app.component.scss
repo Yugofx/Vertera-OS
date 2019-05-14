@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container.no-padding {
+  padding: 0;
+}
+
+.flex-wrap {
+  flex-wrap: wrap!important;
+}
+
+.d-flex {
+  display: flex!important;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+}
+
+.content-wrapper .content {
+  width: 100%;
+}

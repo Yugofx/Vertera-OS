@@ -1,0 +1,29 @@
+<div class="content-wrapper-header">
+  <div class="container no-padding mobile-hidden-scroll">
+    <div class="breadcrumbs ttu h5">
+      <ul>
+        <li *ngFor="let item of mainMenu">
+          <a [routerLink]="item.link"
+             routerLinkActive="-active"
+             class="link h-grt">
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ul class="links ttu h5">
+      <li *ngFor="let item of secondaryMenu">
+        <a [routerLink]="item.link"
+           routerLinkActive="-active"
+           class="link h-grt">
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<main class="content-wrapper">
+  <div class="container no-padding">
+    <router-outlet></router-outlet>
+  </div>
+</main>

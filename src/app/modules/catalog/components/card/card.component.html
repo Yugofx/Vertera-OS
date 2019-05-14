@@ -1,0 +1,28 @@
+<div class="card-image">
+  <img [src]="item?.image" [alt]="item?.name">
+</div>
+<div class="card-title" [class.-first]="isRowViewAndWindowXS$ | async">
+  <a [routerLink]="'/shop/item/' + item?.id" class="link h-grt">{{ item?.name }}</a>
+</div>
+<div class="card-info">
+  <div class="block -fixed-width">
+    <p class="price">{{ item?.price | currency:item?.currency.code:'symbol-narrow':'1.0-4':'ru'
+      }}</p>
+    <ul class="card-value">
+      <li class="pill">
+        <span class="pill-count">{{ item?.points.cpv }}</span>
+        <span class="pill-name -purple">CPV</span>
+      </li>
+
+      <li class="pill">
+        <span class="pill-count">{{ item?.points.bpv }}</span>
+        <span class="pill-name -green">BPV</span>
+      </li>
+    </ul>
+  </div>
+  <div class="block">
+    <os-counter [count]="item.count"
+                (change)="onCounterChange(item.id, $event)">
+    </os-counter>
+  </div>
+</div>

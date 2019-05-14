@@ -1,0 +1,10 @@
+<button class="switch-btn"
+        [class.-active]="activeView === 'row'"
+        (click)="onSwitch('row')">
+  <i class="ic-new ic-view-row"></i>
+</button>
+<button class="switch-btn"
+        [class.-active]="activeView === 'tile'"
+        (click)="onSwitch('tile')">
+  <i class="ic-new ic-view-tile"></i>
+</button>

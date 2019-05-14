@@ -1,0 +1,44 @@
+<h2 class="title">Tabs Components</h2>
+<p class="description">Allows you switching between views without navigating to another
+  route. Consists of two components: tabs wrapper and tab itself.</p>
+<h3 class="subtitle">Tabs Input/ Output</h3>
+<table>
+  <tbody>
+  <tr>
+    <td>@Output</td>
+    <td>tabChanges</td>
+    <td>T</td>
+    <td>Emits instance of rendered component</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Tab Input/ Output</h3>
+<table>
+  <tbody>
+  <tr>
+    <td>@Input</td>
+    <td>componentRef</td>
+    <td>Function</td>
+    <td>Reference to a component to render</td>
+  </tr>
+  <tr>
+    <td>@Input</td>
+    <td>selected</td>
+    <td>Boolean</td>
+    <td>If applied, renders selected tab initially</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="subtitle">Examples</h3>
+<ul>
+  <li class="row">
+    <div class="example">
+      <os-tabs (tabChanges)="onTabChanges($event)">
+        <os-tab [componentRef]="one">Tab one</os-tab>
+        <os-tab [componentRef]="two">Tab two</os-tab>
+      </os-tabs>
+    </div>
+    <div class="state">Component name:
+      <span class="boolean">{{ component.constructor.name }}</span></div>
+  </li>
+</ul>

@@ -1,0 +1,12 @@
+<div class="form-control form-select-control">
+  <div class="form-select-box"
+       (click)="toggle()">
+    <div class="form-select-value">{{ displayedOption }}</div>
+    <div class="form-select-icon"></div>
+  </div>
+  <div class="form-select-list"
+       (clickOutside)="onClickOutside($event)"
+       [style.maxHeight.px]="isPanelOpened ? panelHeight : 0">
+    <ng-content select="os-option"></ng-content>
+  </div>
+</div>

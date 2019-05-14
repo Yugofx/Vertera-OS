@@ -1,0 +1,18 @@
+<ng-container *ngIf="dataSource?.length; else placeholder">
+  <os-cart-view class="table-wrapper"
+                [dataSource]="dataSource"
+                (onCounterClick)="updateCount($event)"
+                [withCounter]="true">
+  </os-cart-view>
+  <footer class="action-block">
+    <os-cart-total [totals]="totals"></os-cart-total>
+    <button (click)="placeOrder()"
+            os-button-raised
+            color="accent">
+      Оформить заказ
+    </button>
+  </footer>
+</ng-container>
+<ng-template #placeholder>
+  Корзина пуста
+</ng-template>

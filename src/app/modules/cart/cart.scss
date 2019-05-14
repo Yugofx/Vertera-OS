@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  width: 100%;
+
+  .table-wrapper {
+    margin-bottom: 2rem;
+    @media (min-width: 768px) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  .action-block {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 576px) {
+      align-items: flex-end;
+    }
+    os-cart-total {
+      margin-bottom: 30px;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.search-field {
+  position: relative;
+  width: auto;
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12.5px;
+    width: 20px;
+    height: 10px;
+    margin-top: -3px;
+    margin-right: -2px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+      &::before {
+        color: #8c06ad;
+      }
+    }
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 639px) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.info-block {
+  font-size: 15px;
+  line-height: 20px;
+  padding: 2rem;
+  background-color: #f2f2f2;
+
+  @media (min-width: 576px) {
+    min-height: 22.5rem;
+    padding: 2.3rem 3rem;
+    background: #f2f2f2 url('/assets/tape-map-bg.svg') right 30px top 30px no-repeat;
+    background-size: 12.5rem 16.6rem;
+  }
+}
+
+.item {
+  display: flex;
+  .title {
+    font-weight: 500;
+  }
+  .ic-new {
+    margin-top: 2px;
+    margin-right: 10px;
+    &.ic-mail {
+      font-size: 12px;
+    }
+  }
+  &:first-child {
+    margin-bottom: 1.7rem;
+  }
+  & + .item {
+    margin-top: 1.5rem;
+  }
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 48rem;
+  position: relative;
+
+  iframe {
+    display: block;
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+  }
+}

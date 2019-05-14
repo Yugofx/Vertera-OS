@@ -1,0 +1,86 @@
+@import '../../../styles/vars';
+
+:host {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 19px;
+  color: #828282;
+  padding-left: 3rem;
+  flex: 2;
+  @include media-breakpoint-down(xs) {
+    margin-top: 10px;
+    padding-left: 0;
+  }
+  ul {
+    li {
+      display: block;
+      width: 100%;
+      padding-left: 15px;
+      position: relative;
+      margin-bottom: 3px;
+      transition: color .3s ease;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #BDBDBD;
+        transition: background-color .3s ease;
+      }
+      &.-passed {
+        color: #333;
+
+        &::before {
+          background-color: #333;
+        }
+      }
+    }
+  }
+  .bar {
+    margin-left: 3rem;
+    @include media-breakpoint-down(lg) {
+      margin-top: 3rem;
+      width: 100%;
+      margin-left: 0;
+    }
+
+    &-progress {
+      margin-top: 12px;
+      display: block;
+      width: 204px;
+      height: 5px;
+      background-color: #E0E0E0;
+      overflow-x: hidden;
+      position: relative;
+      @include media-breakpoint-down(xs) {
+        width: 100%;
+      }
+
+      .progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #333;
+        transition: width .4s ease;
+      }
+    }
+
+    &-status {
+      display: block;
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 17px;
+      color: #333;
+    }
+  }
+}

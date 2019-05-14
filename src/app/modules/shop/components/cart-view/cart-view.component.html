@@ -1,0 +1,111 @@
+<ul class="item-list" *ngIf="isSmOrLess$ | async; else desktopView">
+  <li class="item" *ngFor="let element of dataSource">
+    <div class="title">{{ element.name }}</div>
+    <div class="image">
+      <img [src]="element.image" [alt]="element.name">
+    </div>
+    <div class="info-block">
+      <ul class="block">
+        <li *ngFor="let inner of element.complex">
+          {{ inner.count }}×{{ inner.id }} - {{ inner.name }}
+        </li>
+      </ul>
+      <div class="block -flex">
+        <div class="label">Цена и баллы</div>
+        <div class="value">
+          <div class="price">
+            {{ element.price.total | currency:element.price.code:'symbol-narrow':'1.0-4':'ru' }}
+          </div>
+          <os-pills [cpv]="element.points.cpv" [bpv]="element.points.bpv" right></os-pills>
+        </div>
+      </div>
+      <div class="block -flex">
+        <div class="label -centered">Количество</div>
+        <div class="value">
+          <os-counter *ngIf="withCounter"
+                      [count]="element.count"
+                      (change)="updateCount(element.id, $event)"
+                      no-icon>
+          </os-counter>
+          <span *ngIf="!withCounter">{{ element.count }}</span>
+        </div>
+      </div>
+      <div class="block -flex">
+        <div class="label">Всего</div>
+        <div class="value">
+          <div class="price">
+            {{ element.price.total * element.count || 0 |
+            currency:element.price.code:'symbol-narrow':'1.0-4':'ru' }}
+          </div>
+          <os-pills right
+                    [cpv]="element.points.cpv * element.count"
+                    [bpv]="element.points.bpv * element.count">
+          </os-pills>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<ng-template #desktopView>
+  <table os-table
+         [dataSource]="dataSource">
+    <ng-container osColumnDef="name">
+      <th os-header-cell *osHeaderCellDef>Наименование</th>
+      <td os-cell *osCellDef="let element">
+        <div class="item-name">
+          <div class="image">
+            <img [src]="element.image" [alt]="element.name">
+          </div>
+          <div class="block">
+            <div class="main">{{ element.name }}</div>
+            <ul class="complex">
+              <li *ngFor="let inner of element.complex">
+                {{ inner.count }}×{{ inner.id }} - {{ inner.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container osColumnDef="price">
+      <th os-header-cell *osHeaderCellDef>Цена и баллы</th>
+      <td os-cell *osCellDef="let element">
+        <div class="price">
+          {{ element.price.total | currency:element.price.code:'symbol-narrow':'1.0-4':'ru' }}
+        </div>
+        <os-pills [cpv]="element.points.cpv" [bpv]="element.points.bpv"></os-pills>
+      </td>
+    </ng-container>
+
+    <ng-container osColumnDef="count">
+      <th os-header-cell *osHeaderCellDef>Количество</th>
+      <td os-cell *osCellDef="let element">
+        <os-counter *ngIf=withCounter
+                    [count]="element.count"
+                    (change)="updateCount(element.id, $event)"
+                    no-icon>
+        </os-counter>
+        <span *ngIf="!withCounter">{{ element.count }}</span>
+      </td>
+    </ng-container>
+
+    <ng-container osColumnDef="total">
+      <th os-header-cell *osHeaderCellDef>Всего</th>
+      <td os-cell *osCellDef="let element">
+        <div class="price">
+          {{ element.price.total * element.count || 0 |
+          currency:element.price.code:'symbol-narrow':'1.0-4':'ru' }}
+        </div>
+        <os-pills right
+                  [cpv]="element.points.cpv * element.count"
+                  [bpv]="element.points.bpv * element.count">
+        </os-pills>
+      </td>
+    </ng-container>
+
+    <tr os-header-row *osHeaderRowDef="displayedColumns"></tr>
+    <tr os-row *osRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</ng-template>

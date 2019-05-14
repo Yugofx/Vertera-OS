@@ -1,0 +1,29 @@
+<os-delivery-listing [details]="details"></os-delivery-listing>
+<os-cart-view [dataSource]="cart" [withCounter]="false"></os-cart-view>
+<footer class="footer-block">
+  <os-cart-total [totals]="totals" [delivery]="300"></os-cart-total>
+  <div class="block-row">
+    <div class="label">Способ оплаты</div>
+    <div class="value">
+      <os-select>
+        <os-option value="1" viewOption="Банковской картой"></os-option>
+        <os-option value="2" viewOption="Терминал"></os-option>
+        <os-option value="3" viewOption="Безнал"></os-option>
+        <os-option value="4" viewOption="Веб оплата"></os-option>
+      </os-select>
+    </div>
+  </div>
+  <div class="actions">
+    <button (click)="pay()"
+            os-button-raised
+            color="accent">
+      Оплатить
+    </button>
+    <button (click)="back()"
+            os-button-stroke
+            color="blank">
+      Вернуться назад
+    </button>
+  </div>
+</footer>
+

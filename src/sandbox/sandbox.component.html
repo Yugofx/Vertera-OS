@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <aside class="navbar">
+    <nav>
+      <div class="img-wrapper">
+        <img src="/assets/logo.png" alt="Logo">
+      </div>
+      <h2 class="title">Shared components</h2>
+      <ul>
+        <li *ngFor="let route of routes">
+          <a [routerLink]="route.path" routerLinkActive="-active">{{ route.name }}</a>
+        </li>
+      </ul>
+    </nav>
+    <footer>
+      <p>Version: 0.0.1</p>
+    </footer>
+  </aside>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+

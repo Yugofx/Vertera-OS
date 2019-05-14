@@ -1,0 +1,177 @@
+@import "../../styles/vars";
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.item {
+  &-info {
+    @media (min-width: 576px) {
+      display: flex;
+    }
+  }
+  &-photo {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    max-height: 33rem;
+    margin: 2.5rem 0;
+    @media (min-width: 576px) {
+      display: flex;
+      width: 30rem;
+      height: 30rem;
+      max-height: none;
+      margin: 0;
+      img {
+        margin: auto;
+      }
+    }
+    @media (min-width: 768px) {
+      width: 44rem;
+      height: auto;
+    }
+    @media (min-width: 992px) {
+      width: 57rem;
+    }
+  }
+
+  &-overview {
+    @media (min-width: 576px) {
+      margin-left: 1rem;
+      width: calc(100% - 30rem - 1rem);
+    }
+    @media (min-width: 768px) {
+      width: calc(100% - 44rem - 1rem);
+    }
+    @media (min-width: 992px) {
+      width: calc(100% - 57rem - 1rem);
+    }
+    .text {
+      margin-top: 2.3rem;
+      white-space: pre-line;
+    }
+  }
+
+  &-title {
+    .title {
+      font-size: 30px;
+      line-height: 40px;
+      letter-spacing: .05em;
+    }
+    .subtitle {
+      color: #828282;
+    }
+  }
+  &-params {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3rem 0 2.8rem;
+    .block {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      &:not(:last-child) {
+        margin-right: 2rem;
+        @media (min-width: 576px) {
+          margin-right: 4rem;
+        }
+      }
+      .label {
+        color: #828282;
+      }
+      .value {
+        &:not(.-pills) {
+          font-size: 24px;
+          line-height: 32px;
+        }
+        &.-pills, .pill {
+          display: flex;
+          align-items: center;
+        }
+        .pill {
+          height: 21px;
+          & + .pill {
+            margin-left: 1.3rem;
+          }
+          &-count {
+            margin-right: 4px;
+            color: #4f4f4f;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 1;
+          }
+          &-name {
+            color: #fff;
+            font-weight: 700;
+            padding: 0 4px;
+            border-radius: 8px;
+            font-size: 11px;
+            line-height: 14px;
+            &.-purple {
+              background-color: #9b51e0;
+            }
+            &.-green {
+              background-color: #27ae60;
+            }
+          }
+        }
+      }
+    }
+  }
+  &-cart {
+    .label {
+      margin-bottom: 1rem;
+      color: #828282;
+    }
+  }
+}
+
+.tab-container {
+  margin-top: 3rem;
+  os-tabs {
+    &::ng-deep {
+      .tab-wrapper {
+        margin-bottom: 2.2rem;
+        border-bottom: 1px solid rgba(0,0,0,.05);
+        overflow-x: auto;
+      }
+    }
+  }
+  os-tab {
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 65px;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #333;
+    cursor: pointer;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg,#3706ad 0,#a310b0 100%);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    & + os-tab {
+      margin-left: 3rem;
+    }
+    &.-selected {
+      color: #a310b0!important;
+      background: linear-gradient(90deg,#3706ad 0,#a310b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

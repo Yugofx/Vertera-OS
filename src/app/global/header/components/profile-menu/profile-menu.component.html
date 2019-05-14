@@ -1,0 +1,22 @@
+<os-dropdown class="login"
+             [label]="profileLabel$ | async"
+             labelIcon="ic-user" #profileDropdown>
+  <ul>
+    <ng-container *ngFor="let item of profileMenuRoutes">
+      <li *ngIf="item.authorized === isAuthorized"
+          (click)="profileDropdown.close()">
+        <a [routerLink]="item.route" class="link">
+              <span class="link-icons">
+                <i [class]="'icon ic-' + item.icon"></i>
+              </span>
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+    </ng-container>
+    <li>
+      <button (click)="logout()" class="link">
+        Выйти
+      </button>
+    </li>
+  </ul>
+</os-dropdown>

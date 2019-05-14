@@ -1,0 +1,18 @@
+<label class="checkbox-label"
+       [class.-right]="labelPosition === 'before'"
+       [class.-left]="labelPosition === 'after'">
+  <span class="label">
+    <ng-content></ng-content>
+  </span>
+  <span class="toggle" [class.-checked]="checked"></span>
+  <input type="checkbox"
+         [style.display]="'none'"
+         [disabled]="disabled"
+         [attr.value]="value"
+         [checked]="checked"
+         [attr.name]="name"
+         [required]="required"
+         (change)="onInteractionEvent($event)"
+         (click)="onInputClick($event)"
+         #input>
+</label>

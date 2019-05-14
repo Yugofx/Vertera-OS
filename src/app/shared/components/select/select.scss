@@ -1,0 +1,100 @@
+@import '../../../styles/vars';
+
+:host {
+  font-size: 15px;
+  color: map_get($colors, basic);
+  &.-full-width {
+    width: 100%;
+    .form-control {
+      width: 100%;
+    }
+  }
+  &.-disabled {
+    .form-select-box {
+      cursor: default;
+    }
+    .form-select-value, .form-select-icon {
+      opacity: .4;
+    }
+  }
+}
+
+.form-select {
+  &-control {
+    position: relative;
+    padding: 0;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    font: inherit;
+    line-height: 38px;
+    z-index: $zindex-dropdown;
+    &:hover {
+      background: none;
+    }
+    &:active {
+      box-shadow: none;
+    }
+  }
+  &-box {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding-left: 12px;
+    cursor: pointer;
+  }
+  &-value {
+    flex-grow: 1;
+    height: 100%;
+    color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &-icon {
+    position: relative;
+    width: 35px;
+    height: 100%;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      width: 0;
+      height: 0;
+      border-top: 5px solid #333;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      transform: translateY(-50%);
+    }
+  }
+  &-list {
+    position: absolute;
+    width: 100%;
+    margin: 2px 0 0;
+    padding: 0;
+    border-radius: 4px;
+    background: map_get($colors, blank);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    font-size: 14px;
+    line-height: 18px;
+    max-height: 0;
+    overflow: auto;
+  }
+  &-option {
+    box-sizing: border-box;
+    font: inherit;
+    display: flex;
+    align-items: center;
+    color: #333;
+    white-space: normal;
+    min-height: 40px;
+    height: auto;
+    padding: 11px 12px;
+    cursor: pointer;
+    &:hover, &.selected {
+      color: #333;
+      background-color: #f5f5f5;
+    }
+  }
+}

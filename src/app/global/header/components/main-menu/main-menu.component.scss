@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  .header-links {
+    width: 100%;
+    max-width: none;
+  }
+  .white-drop {
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
+    ::ng-deep {
+      .dropdown-list ul li .link:hover {
+        background: white;
+        color: #220545;
+      }
+      .dropdown-label::after {
+        content: '\e903';
+        position: relative;
+        color: #828282;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 6px;
+        margin-bottom: -2px;
+        font-family: icomoon !important;
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        font-size: 6px;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+  }
+}

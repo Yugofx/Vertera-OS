@@ -1,0 +1,89 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 3rem;
+  padding-right: 0;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  @media (min-width: 576px) {
+    margin-bottom: 4rem;
+  }
+}
+
+.info {
+  &-row {
+    &:not(:first-child) {
+      margin-top: 2rem;
+      @media (min-width: 576px) {
+        margin-top: 3rem;
+      }
+    }
+    &.-spaced {
+      margin: 3rem 0;
+    }
+    @media (min-width: 576px) {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+    .label {
+      color: #828282;
+      @media (min-width: 576px) {
+        min-width: 17.6rem;
+        &.-align-top {
+          align-self: flex-start;
+          margin-top: 2rem;
+        }
+      }
+    }
+    .value {
+      &.-mt {
+        @media (max-width: 575px) {
+          margin-top: 1rem;
+        }
+      }
+      textarea {
+        height: 9rem;
+        resize: none;
+        @media (min-width: 640px) {
+          width: 56rem;
+        }
+      }
+    }
+  }
+}
+
+.delivery-info {
+  margin-top: 2rem;
+  @media (min-width: 576px) {
+    margin-top: 3rem;
+  }
+  .block-title {
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #828282;
+  }
+}
+
+.action-block {
+  margin-top: 30px;
+  @media (min-width: 576px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-top: 4rem;
+  }
+  button {
+    & + button {
+      @media (max-width: 575px) {
+        margin-top: 15px;
+      }
+    }
+  }
+}

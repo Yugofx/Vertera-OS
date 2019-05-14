@@ -1,0 +1,67 @@
+@import 'app/styles/reset';
+@import 'app/styles/vars';
+@import 'app/styles/icons';
+@import 'app/styles/typography';
+@import 'app/styles/forms';
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "app/styles/libs";
+
+::placeholder {
+  color: #666;
+}
+
+::selection, ::-moz-selection {
+  background-color: map_get($colors, accent);
+  color: map_get($colors, blank);
+  text-shadow: none;
+}
+
+html, body {
+  display: block;
+  height: 100%;
+}
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  min-width: 320px;
+  font-family: $main-font;
+  color: map_get($colors, basic);
+  input, textarea {
+    border: #666 1px solid;
+    outline: none;
+  }
+}
+
+a {
+  &, &:hover, &:active, &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+button {
+  outline: 0;
+  border: 0;
+  background: none;
+}
+
+.link.-active {
+  color: #a310b0!important;
+  border-color: #a310b0;
+  background: linear-gradient(90deg,#3706ad 0,#a310b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@import 'app/styles/elements';
+@import 'app/styles/media';

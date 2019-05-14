@@ -1,0 +1,9 @@
+<os-dropdown class="lang" [label]="label$ | async">
+  <ul>
+    <li *ngFor="let language of languages">
+      <button (click)="setActiveLanguage(language.code)">
+        {{ language.fullLabel }}
+      </button>
+    </li>
+  </ul>
+</os-dropdown>

@@ -1,0 +1,31 @@
+<div class="selection-block">
+  <div class="label">Выберите ближайший к Вам Офис:</div>
+  <div class="action">
+    <os-select full-width (valueChange)="setOffice($event)">
+      <os-option *ngFor="let office of offices$ | async"
+                 [value]="office.id"
+                 [viewOption]="office.title">
+      </os-option>
+    </os-select>
+  </div>
+</div>
+<os-office-address [address]="selectedOffice"></os-office-address>
+<div class="selection-block">
+  <div class="label">Выберите интересующую вас валюту:</div>
+  <div class="action">
+    <os-select placeholder="Выберите валюту" [(value)]="currencyCode" [disabled]="!selectedOffice">
+      <os-option *ngFor="let c of selectedOffice?.currencies"
+                 [value]="c.code"
+                 [viewOption]="c.label">
+      </os-option>
+    </os-select>
+  </div>
+</div>
+<footer class="footer">
+  <button os-button-raised
+     color="accent"
+     (click)="selectOffice()"
+     [disabled]="!(currencyCode && selectedOffice)">
+    Далее
+  </button>
+</footer>
